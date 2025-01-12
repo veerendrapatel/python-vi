@@ -1,0 +1,9 @@
+# Ignore files not needed in the Docker build
+.git
+__pycache__
+*.pyc
+*.pyo
+*.log
+.env
+node_modules
+.DS_Store

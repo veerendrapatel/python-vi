@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  python-dev:
+    build:
+      context: .
+    volumes:
+      - ./repo:/app:cached # Use `cached` to optimize performance for development
+      - ~/.aws:/root/.aws:ro # Use `~` for portability and `ro` for read-only
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_ENV: development
+      AWS_PROFILE: 577411803844_AdministratorAccess
+      AWS_REGION: eu-west-1 # Defined here to make it flexible for different environments
+      STREAM_NAME: video-stream-1
+      YOUTUBE_VIDEO_URL: https://www.youtube.com/watch?v=XR-J9PGRBxU
+    command: ["python", "app.py"]
